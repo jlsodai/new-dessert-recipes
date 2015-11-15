@@ -28,7 +28,7 @@ Next, in your terminal, run `$ bin/bundle install` to get gems installed.
 Generate models by running the command below
 
 ```rails
-$ bin/rails generate model model_name
+$ bin/rails generate model [table_name] [table_attributes]
 ```
 where model_name is the name of the model you would like to create.
 
