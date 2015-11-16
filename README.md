@@ -32,6 +32,8 @@ $ bin/rails generate model [table_name] [table_attributes]
 ```
 where model_name is the name of the model you would like to create.
 
+Visit our [Wiki Page](https://github.com/jlsodai/dessert-recipes/wiki) to read about the various table models that were created for this project.
+
 
 # The Team
 - [Julius A. Odai](https://github.com/jlsodai/)
