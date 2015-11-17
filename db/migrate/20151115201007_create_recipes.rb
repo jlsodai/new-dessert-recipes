@@ -7,8 +7,6 @@ class CreateRecipes < ActiveRecord::Migration
       t.text :ingredients
       t.text :directions
       t.integer :ratings
-      t.integer :author_id
-      t.integer :dessert_type_id
 
       t.timestamps null: false
     end

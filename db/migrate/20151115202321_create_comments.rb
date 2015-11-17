@@ -3,7 +3,6 @@ class CreateComments < ActiveRecord::Migration
     create_table :comments do |t|
       t.string :name
       t.string :email
-      t.integer :recipe_id
 
       t.timestamps null: false
     end
