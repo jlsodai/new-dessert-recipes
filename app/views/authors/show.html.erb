@@ -22,7 +22,7 @@
 
 <% if @recipes.count > 0 %>
   <% @recipes.each do |r| %>
-    <p><%= r.name %></p>
+    <p><%= link_to r.name, recipe_path(r) %></p>
   <% end %>
 <% end %>
 
