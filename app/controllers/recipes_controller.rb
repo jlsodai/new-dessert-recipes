@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1.json
   def show
       @recipe = Recipe.find(params[:id])
-      @comments = Comment.where(recipes_id: @recipe.id)
+      @comments = Comment.where(recipe_id: @recipe.id)
   end
 
   # GET /recipes/new
