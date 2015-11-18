@@ -1,71 +1,77 @@
 class RecipesController < ApplicationController
   def index
-    @kofis = Kofi.all
+    @recipes = Recipe.all
   end
 
-  # GET /kofis/1
-  # GET /kofis/1.json
+  # GET /recipes/1
+  # GET /recipes/1.json
   def show
+      @recipe = Recipe.find(params[:id])
   end
 
-  # GET /kofis/new
+  # GET /recipes/new
   def new
-    @kofi = Kofi.new
+    @recipe = Recipe.new
   end
 
-  # GET /kofis/1/edit
+  # GET /recipes/1/edit
   def edit
+    @recipe = Recipe.find(params[:id])
   end
 
-  # POST /kofis
-  # POST /kofis.json
+  # POST /recipes
+  # POST /recipes.json
   def create
-    @kofi = Kofi.new(kofi_params)
+    
+    @author = Author.find(params[:author_id])
+    @recipe = @author.recipe.create(comment_params)
 
     respond_to do |format|
-      if @kofi.save
-        format.html { redirect_to @kofi, notice: 'Kofi was successfully created.' }
-        format.json { render :show, status: :created, location: @kofi }
+      if @recipe.save
+        format.html { redirect_to @author, notice: 'recipe was successfully created.' }
+        format.json { render :show, status: :created, location: @author }
       else
         format.html { render :new }
-        format.json { render json: @kofi.errors, status: :unprocessable_entity }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /kofis/1
-  # PATCH/PUT /kofis/1.json
+  # PATCH/PUT /recipes/1
+  # PATCH/PUT /recipes/1.json
   def update
+    @recipe = Recipe.find(params[:id])
     respond_to do |format|
-      if @kofi.update(kofi_params)
-        format.html { redirect_to @kofi, notice: 'Kofi was successfully updated.' }
-        format.json { render :show, status: :ok, location: @kofi }
+      if @recipe.update(recipe_params)
+        format.html { redirect_to @recipe, notice: 'recipe was successfully updated.' }
+        format.json { render :show, status: :ok, location: @recipe }
       else
         format.html { render :edit }
-        format.json { render json: @kofi.errors, status: :unprocessable_entity }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /kofis/1
-  # DELETE /kofis/1.json
+  # DELETE /recipes/1
+  # DELETE /recipes/1.json
   def destroy
-    @kofi.destroy
+    @author = Author.find(params[:author_id])
+    @recipe.destroy
+    
     respond_to do |format|
-      format.html { redirect_to kofis_url, notice: 'Kofi was successfully destroyed.' }
+      format.html { redirect_to recipes_url, notice: 'recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_kofi
-      @kofi = Kofi.find(params[:id])
+    def set_recipe
+      @recipe = Recipe.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def kofi_params
-      params.require(:kofi).permit(:name)
+    def recipe_params
+      params.require(:recipe).permit(:name, :desciption, :ingredients, :directions)
     end
 end
-

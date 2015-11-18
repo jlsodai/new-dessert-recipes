@@ -18,5 +18,13 @@
   <%= @author.email %>
 </p>
 
+<h2>User Posts - <%= @author.id %></h2>
+
+<% if @recipes.count > 0 %>
+  <% @recipes.each do |r| %>
+    <p><%= r.name %></p>
+  <% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_author_path(@author) %> |
 <%= link_to 'Back', authors_path %>
