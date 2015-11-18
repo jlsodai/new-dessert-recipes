@@ -1,0 +1,17 @@
+<h1>Add Dessert Type</h1>
+
+<%= form_for(@dessert_type) do |f| %>
+
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.text_field :type %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', @dessert_type %> |
+<%= link_to 'Back', dessert_types_path %>
