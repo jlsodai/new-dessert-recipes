@@ -1,4 +1,4 @@
-    <h1>Listing kofis</h1>
+    <h1>Listing recipes</h1>
 
 <table>
   <thead>
@@ -9,12 +9,12 @@
   </thead>
 
   <tbody>
-    <% @kofis.each do |kofi| %>
+    <% @recipes.each do |recipe| %>
       <tr>
-        <td><%= kofi.name %></td>
-        <td><%= link_to 'Show', kofi %></td>
-        <td><%= link_to 'Edit', edit_kofi_path(kofi) %></td>
-        <td><%= link_to 'Destroy', kofi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= recipe.name %></td>
+        <td><%= link_to 'Show', recipe %></td>
+        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
+        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,4 +22,4 @@
 
 <br>
 
-<%= link_to 'New Kofi', new_kofi_path %>
+<%= link_to 'New Recipe', new_recipe_path %>
