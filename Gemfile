@@ -28,6 +28,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'seed_dump'
 
+#Paperclip is for image upload
+gem "paperclip", "~> 4.3"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
