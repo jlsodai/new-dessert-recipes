@@ -12,6 +12,11 @@
   <%= @recipe.ingredients %>
 </p>
 
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @recipe.image.url(:thumb, class: "recipe_image") %>
+</p>
+
 <h2>Comments</h2>
 
 <% if @comments.count > 0 %>

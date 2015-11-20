@@ -24,8 +24,9 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     
-    @author = Author.find(params[:author_id])
-    @recipe = @author.recipe.create(comment_params)
+    #@author = Author.find(params[:author_id])
+    @author = Author.find(2)
+    @recipe = @author.recipes.create(recipe_params)
 
     respond_to do |format|
       if @recipe.save
@@ -73,6 +74,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :desciption, :ingredients, :directions)
+      params.require(:recipe).permit(:name, :description, :ingredients, :directions, :image, :author_id)
     end
 end

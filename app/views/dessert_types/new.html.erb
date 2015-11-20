@@ -1,17 +1,52 @@
-<h1>Add Dessert Type</h1>
+<h1>Current Dessert Types</h1>
 
-<%= form_for(@dessert_type) do |f| %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-  <div class="field">
-    <%= f.label :type %><br>
-    <%= f.text_field :type %>
+  <tbody>
+    <% @dessert_types.each do |dessert_type| %>
+      <tr>
+        <td><%= dessert_type.type %></td>
+        <td><%= link_to 'Show', dessert_type %></td>
+        <td><%= link_to 'Edit', edit_dessert_type_path(dessert_type) %></td>
+        <td><%= link_to 'Destroy', dessert_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<div class="row page-title-heading">
+  <h1 class="text-center">Add Dessert Type</h1>
+</div>
+
+<div class="row">
+  <%= form_for @dessert_type, :html => {:class => 'form-horizontal'} do |f| %>
+  <fieldset>
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="author_name">Dessert Type</label>  
+    <div class="col-md-4">
+    <%= f.text_field :type, placeholder: "Enter Dessert Type", class: "form-control input-md" %>
+    </div>
   </div>
 
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <label class="col-md-4 control-label" for=""></label>
+    <div class="col-md-4">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
   </div>
-<% end %>
+  
+  </fieldset>
+  <% end %>
+</div>
 
 <%= link_to 'Show', @dessert_type %> |
 <%= link_to 'Back', dessert_types_path %>

@@ -11,7 +11,7 @@
   <tbody>
     <% @dessert_types.each do |dessert_type| %>
       <tr>
-        <td><%= dessert_type.name %></td>
+        <td><%= dessert_type.type %></td>
         <td><%= link_to 'Show', dessert_type %></td>
         <td><%= link_to 'Edit', edit_dessert_type_path(dessert_type) %></td>
         <td><%= link_to 'Destroy', dessert_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>

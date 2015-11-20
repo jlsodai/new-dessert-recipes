@@ -2,66 +2,68 @@
   <h1 class="text-center">Create Account</h1>
 </div>
 
-<%= form_for @author, :html => {:class => 'form-horizontal'} do |f| %>
-<fieldset>
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="author_name">Author Name</label>  
-  <div class="col-md-4">
-  <%= f.text_field :name, placeholder: "Full Name", class: "form-control input-md" %>
+<div class="row">
+  <%= form_for @author, :html => {:class => 'form-horizontal'} do |f| %>
+  <fieldset>
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="author_name">Author Name</label>  
+    <div class="col-md-4">
+    <%= f.text_field :name, placeholder: "Full Name", class: "form-control input-md" %>
+    </div>
   </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="username">Username</label>  
-  <div class="col-md-4">
-  <%= f.text_field :username, placeholder: "Username", class: "form-control input-md" %>
+  
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="username">Username</label>  
+    <div class="col-md-4">
+    <%= f.text_field :username, placeholder: "Username", class: "form-control input-md" %>
+    </div>
   </div>
-</div>
-
-<!-- Text input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="author_email">Email</label>  
-  <div class="col-md-4">
-  <%= f.email_field :email, placeholder: "Email", class: "form-control input-md" %>
+  
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="author_email">Email</label>  
+    <div class="col-md-4">
+    <%= f.email_field :email, placeholder: "Email", class: "form-control input-md" %>
+    </div>
   </div>
-</div>
-
-<!-- Password input-->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="author_password">Password</label>
-  <div class="col-md-4">
-    <%= f.password_field :field, placeholder: "Password", class: "form-control input-md" %>
+  
+  <!-- Password input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="author_password">Password</label>
+    <div class="col-md-4">
+      <%= f.password_field :field, placeholder: "Password", class: "form-control input-md" %>
+    </div>
   </div>
-</div>
-
-<!-- Select Basic 
-<div class="form-group">
-  <label class="col-md-4 control-label" for="author_expertise">Expertise</label>
-  <div class="col-md-4">
-    <select id="author_expertise" name="author_expertise" class="form-control">
-      <option value="Yes">Select Expertise</option>
-      <option value="No">Chef</option>
-      <option value="">Non Chef</option>
-    </select>
+  
+  <!-- Select Basic 
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="author_expertise">Expertise</label>
+    <div class="col-md-4">
+      <select id="author_expertise" name="author_expertise" class="form-control">
+        <option value="Yes">Select Expertise</option>
+        <option value="No">Chef</option>
+        <option value="">Non Chef</option>
+      </select>
+    </div>
   </div>
-</div>
--->
-<!-- Textarea -->
-<div class="form-group">
-  <label class="col-md-4 control-label" for="author_bio">Profile</label>
-  <div class="col-md-4">                     
-    <%= f.text_area :bio, placeholder: "Enter Profile Details", class: "form-control" %>
+  -->
+  <!-- Textarea -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="author_bio">Profile</label>
+    <div class="col-md-4">                     
+      <%= f.text_area :bio, placeholder: "Enter Profile Details", class: "form-control" %>
+    </div>
   </div>
-</div>
-
-<div class="form-group">
-  <label class="col-md-4 control-label" for=""></label>
-  <div class="col-md-4">
-    <%= f.submit "Submit", class: "btn btn-primary" %>
+  
+  <div class="form-group">
+    <label class="col-md-4 control-label" for=""></label>
+    <div class="col-md-4">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
   </div>
+  
+  </fieldset>
+  <% end %>
 </div>
-
-</fieldset>
-<% end %>
