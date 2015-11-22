@@ -8,6 +8,7 @@ class RecipesController < ApplicationController
   def show
       @recipe = Recipe.find(params[:id])
       @comments = Comment.where(recipe_id: @recipe.id)
+      @comment = Comment.new
   end
 
   # GET /recipes/new
@@ -57,7 +58,7 @@ class RecipesController < ApplicationController
   # DELETE /recipes/1
   # DELETE /recipes/1.json
   def destroy
-    @author = Author.find(params[:author_id])
+    @recipe = Recipe.find(params[:id])
     @recipe.destroy
     
     respond_to do |format|
@@ -74,6 +75,6 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:name, :description, :ingredients, :directions, :image, :author_id)
+      params.require(:recipe).permit(:name, :description, :ingredients, :directions, :image, :author_id, :dessert_type_id)
     end
 end

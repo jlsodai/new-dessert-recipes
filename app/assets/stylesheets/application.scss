@@ -17,6 +17,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.thumbnail{
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin-bottom: 10px;
+    border-radius: 4px 4px 0 0;
+}
+img.grow {
+    transition: all .3s ease-in-out;
+    &:hover {
+        transform: scale(1.1);
+    }
+}
 .container.main-container{
     margin-top: 70px;
 }

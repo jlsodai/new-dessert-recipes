@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120071050) do
+ActiveRecord::Schema.define(version: 20151120120830) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
@@ -34,12 +34,13 @@ ActiveRecord::Schema.define(version: 20151120071050) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "recipe_id"
+    t.text     "content"
   end
 
   add_index "comments", ["recipe_id"], name: "index_comments_on_recipe_id"
 
   create_table "dessert_types", force: :cascade do |t|
-    t.string   "type"
+    t.string   "name"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "image_file_name"

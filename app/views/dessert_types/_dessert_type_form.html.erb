@@ -1,0 +1,26 @@
+<%= form_for @dessert_type, :html => {:class => 'form-horizontal'} do |f| %>
+  <fieldset>
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="author_name">Dessert Type</label>  
+    <div class="col-md-4">
+    <%= f.text_field :name, placeholder: "Enter Dessert Type", class: "form-control input-md" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-md-4 control-label">Upload Image</label>
+    <div class="col-md-4">                     
+      <%= f.file_field :image, class: "form-control" %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-md-4 control-label" for=""></label>
+    <div class="col-md-4">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  </div>
+  
+  </fieldset>
+<% end %>

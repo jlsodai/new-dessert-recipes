@@ -19,6 +19,8 @@
 
 <h2>Comments</h2>
 
+<%= render "comments/new_form" %>
+
 <% if @comments.count > 0 %>
   <% @comments.each do |c| %>
     <p><%= c.name %></p>
