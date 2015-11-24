@@ -1,0 +1,33 @@
+<h1>Current Dessert Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dessert_types.each do |dessert_type| %>
+      <tr>
+        <td><%= dessert_type.name %></td>
+        <td><%= link_to 'Show', dessert_type %></td>
+        <td><%= link_to 'Edit', edit_dessert_type_path(dessert_type) %></td>
+        <td><%= link_to 'Destroy', dessert_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<div class="row page-title-heading">
+  <h1 class="text-center">Add Dessert Type</h1>
+</div>
+
+<div class="row">
+  <%= render "dessert_type_form" %>
+</div>
+
+<%= link_to 'Show', @dessert_type %> |
+<%= link_to 'Back', dessert_types_path %>

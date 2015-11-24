@@ -10,11 +10,13 @@ class DessertTypesController < ApplicationController
 
   # GET /dessert_types/new
   def new
+    @dessert_types = DessertType.all
     @dessert_type = DessertType.new
   end
 
   # GET /dessert_types/1/edit
   def edit
+    @dessert_type = Recipe.find(params[:id])
   end
 
   # POST /dessert_types
@@ -65,7 +67,7 @@ class DessertTypesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dessert_type_params
-      params.require(:dessert_type).permit(:name)
+      params.require(:dessert_type).permit(:name, :image)
     end
 end
 

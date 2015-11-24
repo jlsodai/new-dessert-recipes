@@ -1,0 +1,15 @@
+---
+:Author:
+  :image:
+  - :medium
+  - :thumb
+:DessertType:
+  :image:
+  - :dessert_type_thumb
+  - :medium
+  - :thumb
+:Recipe:
+  :image:
+  - :medium
+  - :recipe_thumb
+  - :thumb

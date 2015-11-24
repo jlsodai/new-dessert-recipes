@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :dessert_types
   resources :authors
   resources :comments
+  get '/signup' => 'authors#new', as: :signup
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

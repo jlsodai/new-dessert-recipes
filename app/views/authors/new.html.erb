@@ -1,36 +1,69 @@
-<h1>Author New</h1>
+<div class="row page-title-heading">
+  <h1 class="text-center">Create Account</h1>
+</div>
 
-<%= form_for(@author) do |f| %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+<div class="row">
+  <%= form_for @author, :html => {:class => 'form-horizontal'} do |f| %>
+  <fieldset>
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="author_name">Author Name</label>  
+    <div class="col-md-4">
+    <%= f.text_field :name, placeholder: "Full Name", class: "form-control input-md" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :bio %><br>
-    <%= f.text_area :bio %>
+  
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="username">Username</label>  
+    <div class="col-md-4">
+    <%= f.text_field :username, placeholder: "Username", class: "form-control input-md" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :username %><br>
-    <%= f.text_field :username %>
+  
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="author_email">Email</label>  
+    <div class="col-md-4">
+    <%= f.email_field :email, placeholder: "Email", class: "form-control input-md" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.email_field :email %>
+  
+  <!-- Password input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="author_password">Password</label>
+    <div class="col-md-4">
+      <%= f.password_field :field, placeholder: "Password", class: "form-control input-md" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
+  
+  <!-- Select Basic 
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="author_expertise">Expertise</label>
+    <div class="col-md-4">
+      <select id="author_expertise" name="author_expertise" class="form-control">
+        <option value="Yes">Select Expertise</option>
+        <option value="No">Chef</option>
+        <option value="">Non Chef</option>
+      </select>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  -->
+  <!-- Textarea -->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="author_bio">Profile</label>
+    <div class="col-md-4">                     
+      <%= f.text_area :bio, placeholder: "Enter Profile Details", class: "form-control" %>
+    </div>
   </div>
-<% end %>
-
-<%= link_to 'Show', @author %> |
-<%= link_to 'Back', authors_path %>
+  
+  <div class="form-group">
+    <label class="col-md-4 control-label" for=""></label>
+    <div class="col-md-4">
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    </div>
+  </div>
+  
+  </fieldset>
+  <% end %>
+</div>
