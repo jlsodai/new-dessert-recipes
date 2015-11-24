@@ -1,5 +1,10 @@
-<h1>DessertTypes#show</h1>
-<p>Find me in app/views/dessert_types/show.html.erb</p>
+<h1>Recipes - <%= @dessert_type.name %></h1>
+
+<% if @recipes.count > 0%>
+    <%= render "recipes/recipe_index" %>
+<% else %>
+    <p><%= "No Recipes Exist for #{@dessert_type.name}" %></p>
+<% end %>
 
 <%= link_to 'New Dessert Type', new_dessert_type_path %>
 

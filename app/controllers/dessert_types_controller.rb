@@ -6,6 +6,8 @@ class DessertTypesController < ApplicationController
   # GET /dessert_types/1
   # GET /dessert_types/1.json
   def show
+    @dessert_type = DessertType.find(params[:id])
+    @recipes = Recipe.where(dessert_type_id: @dessert_type.id)
   end
 
   # GET /dessert_types/new

@@ -18,12 +18,12 @@
   <%= @author.email %>
 </p>
 
-<h2>User Posts - <%= @author.id %></h2>
+<h2>Recipes for - <%= @author.name %></h2>
 
-<% if @recipes.count > 0 %>
-  <% @recipes.each do |r| %>
-    <p><%= link_to r.name, recipe_path(r) %></p>
-  <% end %>
+<% if @recipes.count > 0%>
+    <%= render "recipes/recipe_index" %>
+<% else %>
+    <p><%= "No Recipes Exist for #{@author.name}" %></p>
 <% end %>
 
 <%= link_to 'Edit', edit_author_path(@author) %> |
