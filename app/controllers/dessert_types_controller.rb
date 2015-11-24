@@ -3,26 +3,20 @@ class DessertTypesController < ApplicationController
     @dessert_types = DessertType.all
   end
 
-  # GET /dessert_types/1
-  # GET /dessert_types/1.json
   def show
     @dessert_type = DessertType.find(params[:id])
     @recipes = Recipe.where(dessert_type_id: @dessert_type.id)
   end
 
-  # GET /dessert_types/new
   def new
     @dessert_types = DessertType.all
     @dessert_type = DessertType.new
   end
 
-  # GET /dessert_types/1/edit
   def edit
     @dessert_type = Recipe.find(params[:id])
   end
 
-  # POST /dessert_types
-  # POST /dessert_types.json
   def create
     @dessert_type = DessertType.new(dessert_type_params)
 
@@ -37,8 +31,6 @@ class DessertTypesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /dessert_types/1
-  # PATCH/PUT /dessert_types/1.json
   def update
     respond_to do |format|
       if @dessert_type.update(dessert_type_params)
@@ -51,8 +43,6 @@ class DessertTypesController < ApplicationController
     end
   end
 
-  # DELETE /dessert_types/1
-  # DELETE /dessert_types/1.json
   def destroy
     @dessert_type.destroy
     respond_to do |format|
@@ -62,14 +52,11 @@ class DessertTypesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_dessert_type
       @dessert_type = DessertType.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def dessert_type_params
       params.require(:dessert_type).permit(:name, :image)
     end
 end
-

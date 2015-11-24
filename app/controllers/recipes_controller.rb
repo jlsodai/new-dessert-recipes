@@ -3,29 +3,21 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all
   end
 
-  # GET /recipes/1
-  # GET /recipes/1.json
   def show
       @recipe = Recipe.find(params[:id])
       @comments = Comment.where(recipe_id: @recipe.id)
       @comment = Comment.new
   end
 
-  # GET /recipes/new
   def new
     @recipe = Recipe.new
   end
 
-  # GET /recipes/1/edit
   def edit
     @recipe = Recipe.find(params[:id])
   end
 
-  # POST /recipes
-  # POST /recipes.json
-  def create
-    
-    #@author = Author.find(params[:author_id])
+  def create   
     @author = Author.find(2)
     @recipe = @author.recipes.create(recipe_params)
 
@@ -40,8 +32,6 @@ class RecipesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /recipes/1
-  # PATCH/PUT /recipes/1.json
   def update
     @recipe = Recipe.find(params[:id])
     respond_to do |format|
@@ -55,8 +45,6 @@ class RecipesController < ApplicationController
     end
   end
 
-  # DELETE /recipes/1
-  # DELETE /recipes/1.json
   def destroy
     @recipe = Recipe.find(params[:id])
     @recipe.destroy
@@ -68,12 +56,10 @@ class RecipesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_recipe
       @recipe = Recipe.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
       params.require(:recipe).permit(:name, :description, :ingredients, :directions, :image, :author_id, :dessert_type_id)
     end
