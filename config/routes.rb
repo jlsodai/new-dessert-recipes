@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   resources :recipes
   resources :dessert_types
   resources :authors
   resources :comments
   get '/signup' => 'authors#new', as: :signup
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
   root 'recipes#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

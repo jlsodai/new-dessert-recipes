@@ -17,9 +17,9 @@
   <%= image_tag @recipe.image.url(:thumb, class: "recipe_image") %>
 </p>
 
-<h2>Comments</h2>
-
 <%= render "comments/new_form" %>
+
+<h2>Comments</h2>
 
 <% if @comments.count > 0 %>
   <% @comments.each do |c| %>

@@ -5,6 +5,8 @@
 <div class="row">
   <%= form_for @author, :html => {:class => 'form-horizontal'} do |f| %>
   <fieldset>
+
+  <%= render 'shared/error_messages' %>
   <!-- Text input-->
   <div class="form-group">
     <label class="col-md-4 control-label" for="author_name">Author Name</label>  
@@ -33,7 +35,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="author_password">Password</label>
     <div class="col-md-4">
-      <%= f.password_field :field, placeholder: "Password", class: "form-control input-md" %>
+      <%= f.password_field :password, placeholder: "Password", class: "form-control input-md" %>
     </div>
   </div>
   

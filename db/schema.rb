@@ -11,12 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151120120830) do
+ActiveRecord::Schema.define(version: 20151125102058) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
     t.string   "username"
-    t.string   "password"
     t.string   "email"
     t.text     "bio"
     t.boolean  "expertise"
@@ -26,6 +25,7 @@ ActiveRecord::Schema.define(version: 20151120120830) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "password_digest"
   end
 
   create_table "comments", force: :cascade do |t|

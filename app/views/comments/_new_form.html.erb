@@ -3,27 +3,23 @@
     <%= f.hidden_field :recipe_id, value: @recipe.id %>
   <!-- Text input-->
   <div class="form-group">
-    <label class="col-md-4 control-label">Full Name</label>  
     <div class="col-md-4">
         <%= f.text_field :name, placeholder: "Full name", class: "form-control input-md" %>
     </div>
   </div>
   
-    <div class="form-group">
-    <label class="col-md-4 control-label">Email Address</label>  
+  <div class="form-group">
     <div class="col-md-4">
         <%= f.email_field :email, placeholder: "Enter Email", class: "form-control input-md" %>
     </div>
   </div>
   
   <div class="form-group">
-    <label class="col-md-4 control-label">Comment</label>  
     <div class="col-md-4">
         <%= f.text_area :content, placeholder: "Comment", class: "form-control input-md" %>
     </div>
   </div>
   <div class="form-group">
-    <label class="col-md-4 control-label"></label>
     <div class="col-md-4">
       <%= f.submit "Submit", class: "btn btn-primary" %>
     </div>

@@ -1,0 +1,15 @@
+<h2>Comments</h2>
+
+<%= render "new_form" %>
+
+<%
+=begin
+%>
+<% if @comments.count > 0 %>
+  <% @comments.each do |c| %>
+    <p><%= c.name %></p>
+  <% end %>
+<% end %>
+<%
+=end
+%>
