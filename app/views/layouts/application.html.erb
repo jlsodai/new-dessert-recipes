@@ -37,8 +37,12 @@
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Account <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                          <% if current_author && current_author.admin? %>
+                            <li><%= link_to 'New Dessert Type', new_dessert_type_path %></li>
+                          <% end %>
+                          <li><%= link_to 'New Recipe', new_recipe_path %></li>
                           <li><%= link_to "Profile", current_author %></li>
-                          <li><%= link_to "Settings", '#' %></li>
+                          <li><%= link_to "Settings", edit_author_path(current_author) %></li>
                           <li class="divider"></li>
                           <li><%= link_to "Log out", logout_path, method: "delete" %></li>
                         </ul>
@@ -56,7 +60,7 @@
     <div class="container main-container">
       <%= yield %>
         <%= render "layouts/footer" %>
-      <%= debug(params) if Rails.env.development? %>
+      <%#= debug(params) if Rails.env.development? %>
     </div>
 </body>
 </html>

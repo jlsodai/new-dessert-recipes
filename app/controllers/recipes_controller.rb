@@ -1,9 +1,12 @@
 class RecipesController < ApplicationController
+  def home
+  end
   def index
     @recipes = Recipe.all
   end
 
   def show
+      #@current_author = current_author
       @recipe = Recipe.find(params[:id])
       @comments = Comment.where(recipe_id: @recipe.id)
       @comment = Comment.new
@@ -18,7 +21,7 @@ class RecipesController < ApplicationController
   end
 
   def create   
-    @author = Author.find(2)
+    @author = Author.find(current_author.id)
     @recipe = @author.recipes.create(recipe_params)
 
     respond_to do |format|

@@ -16,16 +16,20 @@
   <strong>Image:</strong>
   <%= image_tag @recipe.image.url(:thumb, class: "recipe_image") %>
 </p>
+<% if logged_in? %>
+  <% if @recipe.author_id == current_author.id %>
+    <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+  <% end %>
+<% end %>
+<%= link_to 'Back', recipes_path %>
 
+<h1>Add Comments</h1>
 <%= render "comments/new_form" %>
 
 <h2>Comments</h2>
 
 <% if @comments.count > 0 %>
   <% @comments.each do |c| %>
-    <p><%= c.name %></p>
+    <p>"<%= c.content %>" - <%= c.name %></p>
   <% end %>
 <% end %>
-
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>

@@ -1,4 +1,7 @@
 class AuthorsController < ApplicationController
+  before_action :logged_in_author, only: [:edit, :update]
+  before_action :correct_author,   only: [:edit, :update]
+  
   def index
     @authors = Author.all
   end
@@ -18,10 +21,10 @@ class AuthorsController < ApplicationController
 
   def create
     @author = Author.new(author_params)
-    log_in @author
     respond_to do |format|
       if @author.save
-        format.html { redirect_to @author, notice: 'author was successfully created.' }
+        log_in @author
+        format.html { redirect_to @author, notice: 'Author was successfully created.' }
         format.json { render :show, status: :created, location: @author }
       else
         format.html { render :new }
@@ -34,7 +37,7 @@ class AuthorsController < ApplicationController
     @author = Author.find(params[:id])
     respond_to do |format|
       if @author.update(author_params)
-        format.html { redirect_to @author, notice: 'author was successfully updated.' }
+        format.html { redirect_to @author, notice: 'Profile updated.' }
         format.json { render :show, status: :ok, location: @author }
       else
         format.html { render :edit }
@@ -59,5 +62,21 @@ class AuthorsController < ApplicationController
 
     def author_params
       params.require(:author).permit(:name, :bio, :username, :email, :password)
+    end
+    # Confirms a logged-in user.
+    def logged_in_author
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+    # Confirms the correct user.
+    def correct_author
+      @author = Author.find(params[:id])
+      redirect_to(root_url) unless current_author?(@author)
+    end
+    def admin_author
+      redirect_to(root_url) unless current_author.admin?
     end
 end

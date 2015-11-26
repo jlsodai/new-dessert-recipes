@@ -25,6 +25,9 @@
 <% else %>
     <p><%= "No Recipes Exist for #{@author.name}" %></p>
 <% end %>
-
-<%= link_to 'Edit', edit_author_path(@author) %> |
+<% if logged_in? %>
+  <% if @author.id == current_author.id %>
+    <%= link_to 'Edit', edit_author_path(@author) %> |
+  <% end %>
+<% end %>
 <%= link_to 'Back', authors_path %>

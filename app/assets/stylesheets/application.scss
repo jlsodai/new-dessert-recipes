@@ -210,3 +210,16 @@ input {
     color: $state-danger-text;
   }
 }
+
+.intro-text {
+    padding-top: 300px;
+    padding-bottom: 200px;
+}
+.intro-text .intro-heading {
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 75px;
+    line-height: 75px;
+    margin-bottom: 50px;
+}

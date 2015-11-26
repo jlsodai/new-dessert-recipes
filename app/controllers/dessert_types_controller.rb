@@ -44,6 +44,7 @@ class DessertTypesController < ApplicationController
   end
 
   def destroy
+    @dessert_type = DessertType.find(params[:id])
     @dessert_type.destroy
     respond_to do |format|
       format.html { redirect_to dessert_types_url, notice: 'DessertType was successfully destroyed.' }
