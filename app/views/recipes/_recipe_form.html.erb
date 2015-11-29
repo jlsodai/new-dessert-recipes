@@ -1,6 +1,8 @@
 <%= form_for @recipe, :html => {class: 'form-horizontal', multipart: true} do |f| %>
   <fieldset>
+  <% if logged_in? %>
     <%= hidden_field_tag "author_id", current_author.id %>
+  <% end %>
   <!-- Text input-->
   <div class="form-group">
     <label class="col-md-4 control-label">Title</label>  

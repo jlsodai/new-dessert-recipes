@@ -1,4 +1,7 @@
 class RecipesController < ApplicationController
+  # before_action :logged_in_author, only: [:index, :edit, :update]
+  # before_action :correct_author,   only: [:edit, :update]
+  
   def home
   end
   def index
@@ -17,7 +20,16 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
+    if logged_in?
+      @recipe = Recipe.find(params[:id])
+      unless current_author.admin? || @recipe.author_id == current_author.id
+        flash[:danger] = "You aren't allowed to edit someone else\'s Recipe."
+        redirect_to @recipe
+      end
+    else
+      flash[:danger] = "Only logged in users are allowed to edit a recipe."
+      redirect_to login_url
+    end
   end
 
   def create   

@@ -1,16 +1,24 @@
-<%= form_for @comment, :html => {class: 'form-horizontal'} do |f| %>
+<%= form_for @comment, :html => {class: 'form-horizontal'}, remote: true do |f| %>
   <fieldset>
     <%= f.hidden_field :recipe_id, value: @recipe.id %>
   <!-- Text input-->
   <div class="form-group">
     <div class="col-md-4">
-        <%= f.text_field :name, placeholder: "Full name", class: "form-control input-md" %>
+      <% if logged_in? %>
+        <%= f.email_field :name, placeholder: current_author.name, disabled: true, input_html: { value: current_author.name }, class: "form-control input-md" %>
+      <% else %>
+        <%= f.text_field :name, placeholder: "Enter Full name", class: "form-control input-md" %>
+      <% end %>
     </div>
   </div>
   
   <div class="form-group">
     <div class="col-md-4">
-        <%= f.email_field :email, placeholder: "Enter Email", class: "form-control input-md" %>
+      <% if logged_in? %>
+        <%= f.email_field :email, placeholder: current_author.email, disabled: true, input_html: { value: current_author.email }, class: "form-control input-md" %>
+      <% else %>
+        <%= f.text_field :email, placeholder: "Enter your email", class: "form-control input-md" %>
+      <% end %>
     </div>
   </div>
   
