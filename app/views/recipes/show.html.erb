@@ -1,35 +1,41 @@
-<h1><%= @recipe.name %></h1>
+<div class="row">
+  <h1><%= @recipe.name %></h1>
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-9">
+    <p>
+      <strong>Description:</strong>
+      <%= @recipe.description %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
+    <p>
+      <strong>Ingredients:</strong>
+      <%= @recipe.ingredients %>
+    </p>
 
-<p>
-  <strong>Ingredients:</strong>
-  <%= @recipe.ingredients %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @recipe.image.url(:thumb, class: "recipe_image") %>
-</p>
-<% if logged_in? %>
-  <% if @recipe.author_id == current_author.id %>
-    <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-  <% end %>
-<% end %>
-<%= link_to 'Back', recipes_path %>
-
-<h1>Add Comments</h1>
-<%= render "comments/new_form" %>
-
-<h2>Comments</h2>
-
-<div id="comments">
-  <% if @comments.count > 0 %>
-    <% @comments.each do |c| %>
-      <p>"<%= c.content %>" - <%= c.name %></p>
+    <p>
+      <strong>Image:</strong>
+      <%= image_tag @recipe.image.url(:thumb, class: "recipe_image") %>
+    </p>
+    <% if logged_in? %>
+      <% if @recipe.author_id == current_author.id %>
+        <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+      <% end %>
     <% end %>
-  <% end %>
+    <%= link_to 'Back', recipes_path %>
+
+    <h2>Comments</h2>
+
+    <div id="comments">
+      <% if @comments.count > 0 %>
+        <% @comments.each do |c| %>
+          <p>"<%= c.content %>" - <%= c.name %></p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <h1>Add Comments</h1>
+    <%= render "comments/new_form" %>
+
+  </div>
 </div>

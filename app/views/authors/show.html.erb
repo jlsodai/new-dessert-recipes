@@ -1,31 +1,25 @@
-<p>
-  <strong>Name:</strong>
-  <%= @author.name %>
-</p>
-
-<p>
-  <strong>bio:</strong>
-  <%= @author.bio %>
-</p>
-<p>
-  <strong>username:</strong>
-  <%= @author.username %>
-</p>
-<p>
-  <strong>email:</strong>
-  <%= @author.email %>
-</p>
-
-<h2>Recipes for - <%= @author.name %></h2>
-
-<% if @recipes.count > 0%>
-    <%= render "recipes/recipe_index" %>
-<% else %>
-    <p><%= "No Recipes Exist for #{@author.name}" %></p>
-<% end %>
-<% if logged_in? %>
-  <% if @author.id == current_author.id %>
-    <%= link_to 'Edit', edit_author_path(@author) %> |
-  <% end %>
-<% end %>
-<%= link_to 'Back', authors_path %>
+<div class="row">
+    <h1>Recipes for - <%= @author.name %></h1>
+  <div class="col-md-3">
+    <img alt="" src="http://themehats.com/themes/jango/assets/base/img/content/team/team9.jpg" class="c-overlay-object img-responsive">
+    <div class="c-body">
+      <h4><%= @author.name %></h4>
+      <p><strong>Username: </strong><%= @author.username %></p>
+      <p><strong>Profile: </strong><%= @author.bio %>. Lorem ipsum dolor sit amet, dolor nemo amet elit. Nulla nemo consequuntur.</p>
+      <p><strong>Email: </strong><%= @author.email %></p>
+    </div>
+  </div>
+  <div class="col-md-9">
+    <% if @recipes.count > 0%>
+        <%= render "recipes/recipe_index" %>
+    <% else %>
+        <p><%= "No Recipes Exist for #{@author.name}" %></p>
+    <% end %>
+    <% if logged_in? %>
+      <% if @author.id == current_author.id %>
+        <%= link_to 'Edit', edit_author_path(@author) %> |
+      <% end %>
+    <% end %>
+    <%= link_to 'Back', authors_path %>
+  </div>
+</div>

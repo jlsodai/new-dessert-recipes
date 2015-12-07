@@ -1,0 +1,14 @@
+<% @recipes.each_slice(3) do |recipes| %>
+<div class="row">
+  <% recipes.each do |recipe| %>
+  <div class="col-md-4">
+  	<div class="thumbnail">
+  	  <a href="<%= recipe_path(recipe.id) %>">
+  		  <%= image_tag recipe.image.url(:recipe_thumb), class: "grow" %>
+  		</a>
+  	</div>
+  	<div class="caption"><%= truncate(recipe.name, :length => 25) %></div>
+  </div>
+  <% end %>
+</div>
+<% end %>

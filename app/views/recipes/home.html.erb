@@ -1,15 +1,26 @@
 <style>
 body{
-    background: url(https://www.thinkedition.net/wp-content/uploads/2015/11/1355888299_yummy_dessert.jpeg) no-repeat center center fixed; 
+	/*background: url(https://www.thinkedition.net/wp-content/uploads/2015/11/1355888299_yummy_dessert.jpeg) no-repeat center center fixed; */
+    background: url('http://images6.alphacoders.com/431/431194.jpg') no-repeat center center fixed; 
+    /*background: url('http://images6.alphacoders.com/434/434430.jpg') no-repeat center center fixed; */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
+.footer {
+	position: absolute;
+}
 </style>
 
-<div class="intro-text">
+<!-- <div class="intro-text">
     <div class="intro-lead-in">Welcome To Dessert Recipes App!</div>
     <div class="intro-heading">It's Nice To Meet You</div>
     <a href="#" class="page-scroll btn btn-xl">Checkout our Recipes</a>
+</div> -->
+
+<div class="jumbotron">
+	<h1>Welcome To Dessert Recipes App!</h1>
+	<p class="lead">On this page, you could have access to all kinds of Desserts.</p>
+	<p><a role="button" href="<%= recipes_path %>" class="btn btn-lg btn-success">Browse Recipes</a></p>
 </div>
