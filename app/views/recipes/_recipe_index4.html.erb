@@ -1,5 +1,5 @@
 <% @recipes.each_slice(4) do |recipes| %>
-<div class="row">
+<!-- <div class="row"> -->
   <% recipes.each do |recipe| %>
   <div class="col-md-3">
   	<div class="thumbnail">
@@ -10,5 +10,5 @@
   	<div class="caption"><%= truncate(recipe.name, :length => 25) %></div>
   </div>
   <% end %>
-</div>
+<!-- </div> -->
 <% end %>

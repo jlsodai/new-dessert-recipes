@@ -1,0 +1,24 @@
+<form method="post" action="#">
+  <div class="input-group">
+    <input type="text" placeholder="Search blog..." class="form-control c-square c-theme-border">
+    <span class="input-group-btn">
+    <button type="button" class="btn c-theme-btn c-theme-border c-btn-square">Go!</button>
+    </span>
+  </div>
+</form>
+<div class="c-content-ver-nav">
+	<div class="c-content-title-1 c-theme c-title-md c-margin-t-40">
+		<% if params[:controller] == "recipes" %>
+			<h3 class="c-font-bold c-font-uppercase">Dessert Type</h3>
+		<% end %>
+		<div class="c-line-left c-theme-bg">
+		</div>
+	</div>
+	<% if params[:controller] == "recipes" %>
+		<% @dessert_types.each do |dessert_type| %>
+		    <ul class="c-menu c-arrow-dot1 c-theme">
+		    	<li><%= link_to truncate(dessert_type.name, :length => 25), dessert_type_path(dessert_type) %> (3)</li>
+		    </ul>
+		<% end %>
+	<% end %>
+</div>
