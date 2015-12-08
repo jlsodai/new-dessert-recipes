@@ -14,6 +14,7 @@ class RecipesController < ApplicationController
       @recipe = Recipe.find(params[:id])
       @comments = Comment.where(recipe_id: @recipe.id)
       @comment = Comment.new
+      @author = Author.find(@recipe.author_id)
   end
 
   def new

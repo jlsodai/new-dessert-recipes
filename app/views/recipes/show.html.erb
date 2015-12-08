@@ -1,17 +1,18 @@
 <div class="row">
-  <h1><%= @recipe.name %></h1>
+    <h1><%= @recipe.name %></h1>
   <div class="col-md-3">
     <form method="post" action="#">
       <div class="input-group">
         <input type="text" placeholder="Search blog..." class="form-control c-square c-theme-border">
         <span class="input-group-btn">
-        <button type="button" class="btn c-theme-btn c-theme-border c-btn-square">Go!</button>
+          <button type="button" class="btn c-theme-btn c-theme-border c-btn-square">Go!</button>
         </span>
       </div>
     </form>
   </div>
   <div class="col-md-9">
-    <p>
+     <img src="http://placehold.it/900x470">
+<!--    <p>
       <strong>Description:</strong>
       <%= @recipe.description %>
     </p>
@@ -42,8 +43,52 @@
       <% end %>
     </div>
 
-    <h1>Add Comments</h1>
-    <%= render "comments/new_form" %>
+    <h1>Add Comments</h1> -->
 
+    <h1><%= @recipe.name %></h1>
+      <div class="c-panel c-margin-b-30">
+        <div class="c-author">
+          <a href="#">By <span class="c-font-uppercase"><%= @author.name %></span></a> on <%= @recipe.created_at.strftime("%d %b, %y - %I:%M %p") %>
+          <span class="c-comments"><a href="#"><i class="icon-speech"></i> 30 comments</a></span>
+        </div>
+      </div>
+
+      <div class="c-desc">
+        <p> Lorem ipsum dolor sit amet, coectetuer diam ipsum dolor sit amet nonummy coectetuer diam ipsum dolor sit coectetuer adipiscing elit amipiscing elit sit adipiscing consectetuer ipsum dolor sit amipiscing elit sit
+        amet, sit amet, coectetuer adipiscing elit adipiscing consectetuer ipsum dolor sit amet diam nonummy adipiscing elit sit amet, sit ame. </p>
+        <p> Lorem ipsum dolor sit amet, coectetuer diam ipsum dolor sit amet nonummy coectetuer diam ipsum dolor sit coectetuer adipiscing elit adipiscing consectetuer ipsum dolor sit amipiscing elit sit amet, sit amet, coectetuer
+        adipiscing elit adipiscing consectetuer ipsum dolor sit amet diam nonummy adipiscing elit sit amet, sit ame. </p>
+        <p> Lorem ipsum dolor sit amet, coectetuer diam ipsum dolor sit amet nonummy coectetuer diam ipsum dolor sit coectetuer adipiscing elit adipiscing const sit amet, sit amet, coectetuer adipiscing elit adipiscing consectetuer
+        ipsum dolor sit amet diam nonummy adipiscing elit sit amet, sit ame. </p>
+        <p> Lorem ipsum dolor sit amet, coe coectetuer diam ipsum dolor sit coectetuer adipiscing elit adipiscing consectetuer ipsum dolor sit amipiscing elit sit amet, sit amet, coectetuer adipiscing elit adipiscing consectetuer
+        ipsum dolor sit amet diam nonummy adipiscing elit sit amet, sit ame. </p>
+      </div>
+
+      <div class="comments">
+        <h3>Comments</h3>
+        <ul id="comments" class="commentlist">
+          <% if @comments.count > 0 %>
+            <% @comments.each do |c| %>
+              <li>
+               <div class="comment">
+                 <img class="avatar" src="http://2.gravatar.com/avatar/bc2aa7a0acc8abc9dee081631740382a?s=70&amp;d=mm&amp;r=g" alt="">
+                 <div class="comment-content">
+                   <div class="comment-by"><strong><%= c.name %></strong> <span class="date"><%= c.created_at.strftime("%d %b, %y at %I:%M %p") %></span>
+                     <a aria-label="Reply to Vasterad" onclick="" href="" class="comment-reply-link" rel="nofollow"><i class="fa fa-reply"></i>Reply</a>
+                     </div>
+                     <p><%= c.content %></p>
+                   </div>
+               </div>
+              </li><!-- #comment-## -->
+            <% end %>
+          <% else %>
+            <p>No Comments available. Be the first to comment</p>
+          <% end %>
+        </ul>
+      </div>
+
+    <%= render "comments/new_form" %>
   </div>
 </div>
+
+

@@ -248,3 +248,91 @@ input {
 .c-body{
   padding: 0 10px;
 }
+
+/* Comments */
+
+.comments {
+    margin: 10px 0 0;
+}
+.comments ul li {
+    display: block;
+    margin: 0 0 20px 90px;
+    position: relative;
+}
+.avatar {
+    display: inline-block;
+    float: left;
+    left: -90px;
+    position: absolute;
+}
+img {
+    border: 0 none;
+    max-width: 100%;
+    width: auto;
+}
+.comment-content {
+    background: #f8f8f8 none repeat scroll 0 0;
+    color: #888;
+    padding: 22px 25px 23px;
+    position: relative;
+}
+.comment-by {
+    padding-bottom: 8px;
+    padding-top: 5px;
+    width: 100%;
+}
+.comment-content strong {
+    color: #606060;
+    font-size: 14px;
+    padding-right: 5px;
+}
+.comment-by span.date {
+    color: #a0a0a0;
+    display: block;
+    float: none;
+    font-weight: 500;
+    margin: 2px 0 0;
+    text-align: left;
+}
+.comment-by a.comment-reply-link {
+    background-color: #eee;
+    color: #999;
+    display: inline;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 10px;
+    position: absolute;
+    right: 0;
+    text-transform: uppercase;
+    top: 0;
+}
+.comment-content p {
+    padding: 5px 0 !important;
+}
+.comment-content p {
+    line-height: 23px;
+    margin: 0;
+}
+.comment-content .rating {
+    display: block;
+    margin-top: 10px;
+}
+.rating {
+    box-sizing: content-box;
+    display: block;
+    height: 18px;
+    margin-bottom: 8px;
+    overflow: hidden;
+    position: relative;
+    width: 100px;
+}
+ul {
+    list-style: outside none none;
+}
+ul, ol {
+    margin: 0;
+    padding: 0;
+}
+.form-horizontal .form-group {
+    margin: 0;
+}
