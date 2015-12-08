@@ -16,3 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
+$( document ).ready(function() {
+	console.log($(window).height());
+	console.log($('.jumbotron').height());
+});
