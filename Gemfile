@@ -27,7 +27,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'seed_dump'
+<<<<<<< HEAD
 gem 'simple_form'
+=======
+>>>>>>> gem-install
 gem "cocoon"
 #Paperclip is for image upload
 gem "paperclip", "~> 4.3"
