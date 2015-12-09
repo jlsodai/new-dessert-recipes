@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209020433) do
+ActiveRecord::Schema.define(version: 20151209031106) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20151209020433) do
 
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
-    t.string   "string"
     t.integer  "recipe_id"
     t.string   "notes"
     t.datetime "created_at", null: false
@@ -94,9 +93,11 @@ ActiveRecord::Schema.define(version: 20151209020433) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "level_id"
   end
 
   add_index "recipes", ["author_id"], name: "index_recipes_on_author_id"
   add_index "recipes", ["dessert_type_id"], name: "index_recipes_on_dessert_type_id"
+  add_index "recipes", ["level_id"], name: "index_recipes_on_level_id"
 
 end
