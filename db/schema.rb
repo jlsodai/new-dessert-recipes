@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126075020) do
+ActiveRecord::Schema.define(version: 20151209020433) do
 
   create_table "authors", force: :cascade do |t|
     t.string   "name"
@@ -49,6 +49,35 @@ ActiveRecord::Schema.define(version: 20151126075020) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "directions", force: :cascade do |t|
+    t.text     "info"
+    t.integer  "recipe_id"
+    t.string   "preparation_time"
+    t.integer  "level_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "directions", ["level_id"], name: "index_directions_on_level_id"
+  add_index "directions", ["recipe_id"], name: "index_directions_on_recipe_id"
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string   "name"
+    t.string   "string"
+    t.integer  "recipe_id"
+    t.string   "notes"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ingredients", ["recipe_id"], name: "index_ingredients_on_recipe_id"
+
+  create_table "levels", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "recipes", force: :cascade do |t|

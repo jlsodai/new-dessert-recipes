@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  info: MyText
+  recipe_id: 
+  preparation_time: MyString
+  level_id: 
+
+two:
+  info: MyText
+  recipe_id: 
+  preparation_time: MyString
+  level_id: 
