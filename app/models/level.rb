@@ -1,3 +1,3 @@
 class Level < ActiveRecord::Base
-	has_many :directions
+	has_many :recipes
 end
